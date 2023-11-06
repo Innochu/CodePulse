@@ -1160,6 +1160,20 @@
           }
         }
       },
+      "CodePulse.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.13",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13"
+        },
+        "compile": {
+          "bin/placeholder/CodePulse.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CodePulse.Application.dll": {}
+        }
+      },
       "CodePulse.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -3361,6 +3375,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "CodePulse.Application/1.0.0": {
+      "type": "project",
+      "path": "../CodePulse.Application/CodePulse.Application.csproj",
+      "msbuildProject": "../CodePulse.Application/CodePulse.Application.csproj"
+    },
     "CodePulse.Domain/1.0.0": {
       "type": "project",
       "path": "../CodePulse.Domain/CodePulse.Domain.csproj",
@@ -3374,6 +3393,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "CodePulse.Application >= 1.0.0",
       "CodePulse.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.11",
       "Microsoft.EntityFrameworkCore >= 7.0.13",
@@ -3410,6 +3430,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\Users\\Decagon\\Desktop\\sameerAngular\\API\\CodePulse\\CodePulse.API\\CodePulse.Application\\CodePulse.Application.csproj": {
+              "projectPath": "C:\\Users\\Decagon\\Desktop\\sameerAngular\\API\\CodePulse\\CodePulse.API\\CodePulse.Application\\CodePulse.Application.csproj"
+            },
             "C:\\Users\\Decagon\\Desktop\\sameerAngular\\API\\CodePulse\\CodePulse.API\\CodePulse.Infrastructure\\CodePulse.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\Decagon\\Desktop\\sameerAngular\\API\\CodePulse\\CodePulse.API\\CodePulse.Infrastructure\\CodePulse.Infrastructure.csproj"
             }
