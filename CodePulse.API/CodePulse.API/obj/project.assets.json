@@ -1159,6 +1159,35 @@
             "rid": "win"
           }
         }
+      },
+      "CodePulse.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.13",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13"
+        },
+        "compile": {
+          "bin/placeholder/CodePulse.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CodePulse.Domain.dll": {}
+        }
+      },
+      "CodePulse.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "CodePulse.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.13",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13"
+        },
+        "compile": {
+          "bin/placeholder/CodePulse.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CodePulse.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -3331,10 +3360,21 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "CodePulse.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CodePulse.Domain/CodePulse.Domain.csproj",
+      "msbuildProject": "../CodePulse.Domain/CodePulse.Domain.csproj"
+    },
+    "CodePulse.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../CodePulse.Infrastructure/CodePulse.Infrastructure.csproj",
+      "msbuildProject": "../CodePulse.Infrastructure/CodePulse.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "CodePulse.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.11",
       "Microsoft.EntityFrameworkCore >= 7.0.13",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.13",
@@ -3369,7 +3409,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Decagon\\Desktop\\sameerAngular\\API\\CodePulse\\CodePulse.API\\CodePulse.Infrastructure\\CodePulse.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Decagon\\Desktop\\sameerAngular\\API\\CodePulse\\CodePulse.API\\CodePulse.Infrastructure\\CodePulse.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
