@@ -1,0 +1,14 @@
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\bin\Debug\net7.0\CodePulse.Domain.deps.json
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\bin\Debug\net7.0\CodePulse.Domain.runtimeconfig.json
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\bin\Debug\net7.0\CodePulse.Domain.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\bin\Debug\net7.0\CodePulse.Domain.pdb
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\CodePulse.Domain.csproj.AssemblyReference.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\CodePulse.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\CodePulse.Domain.AssemblyInfoInputs.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\CodePulse.Domain.AssemblyInfo.cs
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\CodePulse.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\CodePulse.Domain.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\refint\CodePulse.Domain.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\CodePulse.Domain.pdb
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\CodePulse.Domain.genruntimeconfig.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Domain\obj\Debug\net7.0\ref\CodePulse.Domain.dll

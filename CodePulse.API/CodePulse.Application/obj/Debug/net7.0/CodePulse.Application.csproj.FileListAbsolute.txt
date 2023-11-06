@@ -1,0 +1,14 @@
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\bin\Debug\net7.0\CodePulse.Application.deps.json
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\bin\Debug\net7.0\CodePulse.Application.runtimeconfig.json
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\bin\Debug\net7.0\CodePulse.Application.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\bin\Debug\net7.0\CodePulse.Application.pdb
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\CodePulse.Application.csproj.AssemblyReference.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\CodePulse.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\CodePulse.Application.AssemblyInfoInputs.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\CodePulse.Application.AssemblyInfo.cs
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\CodePulse.Application.csproj.CoreCompileInputs.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\CodePulse.Application.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\refint\CodePulse.Application.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\CodePulse.Application.pdb
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\CodePulse.Application.genruntimeconfig.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Application\obj\Debug\net7.0\ref\CodePulse.Application.dll

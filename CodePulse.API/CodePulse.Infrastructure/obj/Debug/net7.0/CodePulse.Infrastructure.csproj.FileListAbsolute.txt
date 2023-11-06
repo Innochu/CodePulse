@@ -1,0 +1,17 @@
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\bin\Debug\net7.0\CodePulse.Infrastructure.deps.json
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\bin\Debug\net7.0\CodePulse.Infrastructure.runtimeconfig.json
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\bin\Debug\net7.0\CodePulse.Infrastructure.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\bin\Debug\net7.0\CodePulse.Infrastructure.pdb
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\bin\Debug\net7.0\CodePulse.Domain.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\bin\Debug\net7.0\CodePulse.Domain.pdb
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.AssemblyInfo.cs
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.csproj.CopyComplete
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\refint\CodePulse.Infrastructure.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.pdb
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.genruntimeconfig.cache
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\ref\CodePulse.Infrastructure.dll
