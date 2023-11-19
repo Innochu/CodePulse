@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\ResponseDTO\" />
+    <ProjectReference Include="..\CodePulse.Domain\CodePulse.Domain.csproj" />
   </ItemGroup>
 
 </Project>

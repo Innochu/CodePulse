@@ -15,3 +15,5 @@ C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Inf
 C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.pdb
 C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\CodePulse.Infrastructure.genruntimeconfig.cache
 C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\obj\Debug\net7.0\ref\CodePulse.Infrastructure.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\bin\Debug\net7.0\CodePulse.Application.dll
+C:\Users\Decagon\Desktop\sameerAngular\API\CodePulse\CodePulse.API\CodePulse.Infrastructure\bin\Debug\net7.0\CodePulse.Application.pdb

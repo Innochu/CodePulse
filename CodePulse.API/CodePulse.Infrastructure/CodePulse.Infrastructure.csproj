@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CodePulse.Application\CodePulse.Application.csproj" />
     <ProjectReference Include="..\CodePulse.Domain\CodePulse.Domain.csproj" />
   </ItemGroup>
 
