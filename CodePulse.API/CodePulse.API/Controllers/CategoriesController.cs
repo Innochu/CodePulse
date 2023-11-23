@@ -9,6 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace CodePulse.API.Controllers
 {
     //hhtps: localhost:xxxx/api/categories
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -21,8 +27,8 @@ namespace CodePulse.API.Controllers
         }
 
         //https: localhost: xxxx/api/createCategories
-        [HttpPost]
-        public async Task<IActionResult> CreatCategory(PostCategoryRequestDTO postCategoryRequestDTO)
+        [HttpPost("Add-Category")]
+        public async Task<IActionResult> CreatCategory([FromBody]PostCategoryRequestDTO postCategoryRequestDTO)
         {
 
             // map DTO to Domain Model
@@ -47,6 +53,41 @@ namespace CodePulse.API.Controllers
 
 
             return Ok(response);   //you have to return the DTO response
+        }
+
+
+        //GET: https://localhost:7278/api/Categories/Get-All
+        [HttpGet("Get-All")]
+        public async Task<IActionResult> Getcategory()
+        {
+          var categories =   await _categoryRepo.GetAllAsync();
+
+
+            //categories is a variable carring the properties of the repositories including the models
+            //since we know that REPO deals with only model classes, and controller deals
+            //with only DTO, therefore.....
+            //map Domain model to DTO
+
+
+
+            var response = new List<CategoryResponseDto>();
+
+            //the list is declared is an empty list, so we need to add it members
+
+
+            foreach (var item in categories)
+            {
+                response.Add(new CategoryResponseDto
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    UrlHandle = item.Urlhandle,
+                }
+                    );
+            }
+
+            return Ok(response);
+            //returns the Dto to the user
         }
     }
 }

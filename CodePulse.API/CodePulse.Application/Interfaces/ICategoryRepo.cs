@@ -6,5 +6,7 @@ namespace CodePulse.Application.Interfaces
     {
         Task<Category> CreateAsync(Category category);
         //this will take Category and insert it in the data base and return a category.
+
+        Task<IEnumerable<Category>> GetAllAsync();
     }
 }

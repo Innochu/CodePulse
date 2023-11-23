@@ -1,6 +1,7 @@
 ﻿using CodePulse.Application.DTO.RequestDTO;
 using CodePulse.Application.Interfaces;
 using CodePulse.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodePulse.Infrastructure.RepositoryFolder
 {
@@ -20,6 +21,12 @@ namespace CodePulse.Infrastructure.RepositoryFolder
             await _applicationDbContext.SaveChangesAsync();
 
             return category;
+        }
+
+        public async Task<IEnumerable<Category>> GetAllAsync()
+        {
+          return await _applicationDbContext.Categories.ToListAsync();
+           
         }
     }
 }
