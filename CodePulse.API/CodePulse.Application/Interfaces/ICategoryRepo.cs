@@ -8,5 +8,9 @@ namespace CodePulse.Application.Interfaces
         //this will take Category and insert it in the data base and return a category.
 
         Task<IEnumerable<Category>> GetAllAsync();
+
+        Task<Category> GetByIdAsync(Guid id);   //takes the id and returns the category that matches
+
+        Task<Category> UpdateAsync(Category category);
     }
 }

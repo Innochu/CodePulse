@@ -89,5 +89,50 @@ namespace CodePulse.API.Controllers
             return Ok(response);
             //returns the Dto to the user
         }
+
+        //Get https://localhost:7278/api/Categories/GetById
+        [HttpGet("GetById{id:Guid}")]
+        public async Task<IActionResult> GetById([FromRoute] Guid id)
+        {
+           var getbyid = await _categoryRepo.GetByIdAsync(id);
+
+            if (getbyid == null)
+            {
+                return BadRequest();
+            }
+            return Ok(getbyid);
+
+            
+        }
+
+
+        [HttpPut("{id:Guid}")]
+        public async Task<IActionResult> update([FromRoute] Guid id, UpdateCategoryRequestDTO updateCategoryRequestDTO)
+        {
+            var cat = new Category()
+            {
+                Id = id,
+                Name = updateCategoryRequestDTO.Name,
+                Urlhandle = updateCategoryRequestDTO.Urlhandle,
+            };
+            
+             cat = await _categoryRepo.UpdateAsync(cat);
+
+            if (cat == null)
+            {
+                return NotFound();
+            }
+
+            var response = new CategoryResponseDto
+            {
+                Id = cat.Id,
+                Name = cat.Name,
+                UrlHandle = cat.Urlhandle,
+            };
+
+            return Ok(response);
+
+          
+        }
     }
 }

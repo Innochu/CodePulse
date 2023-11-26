@@ -28,5 +28,25 @@ namespace CodePulse.Infrastructure.RepositoryFolder
           return await _applicationDbContext.Categories.ToListAsync();
            
         }
+
+
+        public async Task<Category> GetByIdAsync(Guid id)
+        {
+            return await _applicationDbContext.Categories.FirstOrDefaultAsync(x => x.Id == id );
+
+        }
+
+        public async Task<Category> UpdateAsync(Category category)
+        {
+           var existingcategory = await _applicationDbContext.Categories.FirstOrDefaultAsync(item => item.Id == category.Id);
+
+            if (existingcategory != null)
+            {
+                 _applicationDbContext.Entry(existingcategory).CurrentValues.SetValues(category);
+                await _applicationDbContext.SaveChangesAsync();
+                return category;
+            }
+            return null;
+        }
     }
 }
