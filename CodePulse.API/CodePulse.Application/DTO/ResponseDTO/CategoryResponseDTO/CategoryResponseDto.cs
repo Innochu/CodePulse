@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodePulse.Application.DTO.ResponseDTO
+namespace CodePulse.Application.DTO.ResponseDTO.CategoryResponseDTO
 {
     public class CategoryResponseDto
     {

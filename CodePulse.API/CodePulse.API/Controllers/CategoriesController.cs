@@ -1,5 +1,5 @@
 ﻿using CodePulse.Application.DTO.RequestDTO.CategoryRequestDTO;
-using CodePulse.Application.DTO.ResponseDTO;
+using CodePulse.Application.DTO.ResponseDTO.CategoryResponseDTO;
 using CodePulse.Application.Interfaces;
 using CodePulse.Domain.Models;
 using CodePulse.Infrastructure;

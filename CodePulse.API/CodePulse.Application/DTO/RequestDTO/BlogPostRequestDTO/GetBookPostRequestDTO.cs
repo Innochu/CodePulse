@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodePulse.Application.DTO.RequestDTO.BlogPostRequestDTO
 {
-    internal class GetBlogPostRequestDTO
+    internal class GetBookPostRequestDTO
     {
     }
 }

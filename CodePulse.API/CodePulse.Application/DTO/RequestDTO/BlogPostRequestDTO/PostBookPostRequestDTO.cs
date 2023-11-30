@@ -1,6 +1,6 @@
 ﻿namespace CodePulse.Application.DTO.RequestDTO.BlogPostRequestDTO
 {
-    public class PostBlogPostRequestDTO
+    public class PostBookPostRequestDTO
     {
         public string Title { get; set; } = string.Empty;
         public string ShortDescription { get; set; } = string.Empty;
