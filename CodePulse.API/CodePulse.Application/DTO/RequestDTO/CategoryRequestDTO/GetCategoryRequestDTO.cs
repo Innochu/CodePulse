@@ -1,4 +1,4 @@
-﻿namespace CodePulse.Application.DTO.RequestDTO
+﻿namespace CodePulse.Application.DTO.RequestDTO.CategoryRequestDTO
 {
     public class GetCategoryRequestDTO
     {

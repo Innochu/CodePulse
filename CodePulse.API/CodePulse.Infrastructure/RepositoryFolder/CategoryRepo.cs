@@ -23,6 +23,19 @@ namespace CodePulse.Infrastructure.RepositoryFolder
             return category;
         }
 
+        public async Task<Category> DeleteAsync(Guid id)
+        {
+           var deleteitem = await _applicationDbContext.Categories.FindAsync(id);
+            if (deleteitem is null)
+            {
+                return null;
+            }
+            _applicationDbContext.Remove(deleteitem);
+            await _applicationDbContext.SaveChangesAsync();
+            return deleteitem;
+
+        }
+
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
           return await _applicationDbContext.Categories.ToListAsync();

@@ -12,5 +12,7 @@ namespace CodePulse.Application.Interfaces
         Task<Category> GetByIdAsync(Guid id);   //takes the id and returns the category that matches
 
         Task<Category> UpdateAsync(Category category);
+
+        Task<Category> DeleteAsync(Guid id);
     }
 }

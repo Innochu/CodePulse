@@ -1,4 +1,4 @@
-﻿using CodePulse.Application.DTO.RequestDTO;
+﻿using CodePulse.Application.DTO.RequestDTO.CategoryRequestDTO;
 using CodePulse.Application.DTO.ResponseDTO;
 using CodePulse.Application.Interfaces;
 using CodePulse.Domain.Models;
@@ -106,8 +106,8 @@ namespace CodePulse.API.Controllers
         }
 
 
-        [HttpPut("{id:Guid}")]
-        public async Task<IActionResult> update([FromRoute] Guid id, UpdateCategoryRequestDTO updateCategoryRequestDTO)
+        [HttpPut("Update{id:Guid}")]
+        public async Task<IActionResult> update([FromRoute] Guid id, [FromBody] UpdateCategoryRequestDTO updateCategoryRequestDTO)
         {
             var cat = new Category()
             {
@@ -134,5 +134,27 @@ namespace CodePulse.API.Controllers
 
           
         }
+
+        [HttpDelete("Delete{id:Guid}")]
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        {
+         var del =   await _categoryRepo.DeleteAsync(id);
+
+            if(del == null)
+            {
+                return NotFound(id);
+            }
+
+
+            var response = new CategoryResponseDto
+            
+            {
+                Id = del.Id,
+                Name = del.Name,
+                UrlHandle = del.Urlhandle,
+            };
+            return Ok(response);
+        }
+
     }
 }
