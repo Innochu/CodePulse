@@ -1,6 +1,6 @@
 ﻿namespace CodePulse.Application.DTO.ResponseDTO.BlogPostResponseDTO
 {
-    public class BlogPostResponseDto
+    public class BookPostResponseDto
     {
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;

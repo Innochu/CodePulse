@@ -1,7 +1,10 @@
 ﻿using CodePulse.Application.DTO.RequestDTO.BlogPostRequestDTO;
 using CodePulse.Application.DTO.RequestDTO.CategoryRequestDTO;
 using CodePulse.Application.DTO.ResponseDTO;
+using CodePulse.Application.DTO.ResponseDTO.BlogPostResponseDTO;
+using CodePulse.Application.Interfaces;
 using CodePulse.Domain.Models;
+using CodePulse.Infrastructure.RepositoryFolder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,11 +19,16 @@ namespace CodePulse.API.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogPostController : ControllerBase
+    public class BookPostController : ControllerBase
     {
+        private readonly IBookPostRepo _bookPostRepo;
 
+        public BookPostController(IBookPostRepo bookPostRepo)
+        {
+            _bookPostRepo = bookPostRepo;
+        }
 
-        [HttpPost("Add-Category")]
+        [HttpPost("Add-BookPost")]
         public async Task<IActionResult> CreatCategory([FromBody] PostBookPostRequestDTO postBookPostRequestDTO)
         {
 
@@ -40,15 +48,21 @@ namespace CodePulse.API.Controllers
 
             };
 
-            await _categoryRepo.CreateAsync(category);
+            await _bookPostRepo.CreateAsync(bookPost);
 
             //map Domain model to DTO
 
-            var response = new CategoryResponseDto
+            var response = new BookPostResponseDto
             {
-                Id = category.Id,
-                Name = category.Name,
-                UrlHandle = category.Urlhandle,
+                Id = bookPost.Id,
+                Title = bookPost.Title,
+                ShortDescription = bookPost.ShortDescription,
+                Author = bookPost.Author,
+                UrlHandle = bookPost.UrlHandle,
+                Content = bookPost.Content,
+                FeaturedImageUrl = bookPost.FeaturedImageUrl,
+                DateCreated = bookPost.DateCreated,
+                IsVisible = bookPost.IsVisible,
                 //this mapping is what would display in our swagger UI
             };
 
