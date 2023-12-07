@@ -1,5 +1,6 @@
 ﻿using CodePulse.Application.Interfaces;
 using CodePulse.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodePulse.Infrastructure.RepositoryFolder
 {
@@ -24,6 +25,12 @@ namespace CodePulse.Infrastructure.RepositoryFolder
             await _applicationDbContext.SaveChangesAsync();
 
             return bookPost;
+        }
+
+        public async Task<IEnumerable<BookPost>> GetAllAsync()
+        {
+            return await _applicationDbContext.BookPosts.ToListAsync();
+
         }
     }
 }

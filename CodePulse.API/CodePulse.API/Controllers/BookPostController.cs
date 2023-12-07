@@ -2,6 +2,7 @@
 using CodePulse.Application.DTO.RequestDTO.CategoryRequestDTO;
 using CodePulse.Application.DTO.ResponseDTO;
 using CodePulse.Application.DTO.ResponseDTO.BlogPostResponseDTO;
+using CodePulse.Application.DTO.ResponseDTO.CategoryResponseDTO;
 using CodePulse.Application.Interfaces;
 using CodePulse.Domain.Models;
 using CodePulse.Infrastructure.RepositoryFolder;
@@ -71,6 +72,50 @@ namespace CodePulse.API.Controllers
         }
 
 
+
+
+
+        //GET: https://localhost:7278/api/BookPost/Get-All-Books
+        [HttpGet("Get-All-Books")]
+        public async Task<IActionResult> Getcategory()
+        {
+            var books = await _bookPostRepo.GetAllAsync();
+
+
+            //categories is a variable carring the properties of the repositories including the models
+            //since we know that REPO deals with only model classes, and controller deals
+            //with only DTO, therefore.....
+            //map Domain model to DTO
+
+
+
+            var response = new List<BookPostResponseDto>();
+
+            //the list is declared is an empty list, so we need to add it members
+
+
+            foreach (var item in books)
+            {
+                response.Add(new BookPostResponseDto
+                {
+                    Id = item.Id,
+                    Title = item.Title,
+                    ShortDescription= item.ShortDescription,
+                    Author = item.Author,
+                    UrlHandle = item.UrlHandle,
+                    Content = item.Content,
+                    FeaturedImageUrl = item.FeaturedImageUrl,
+                    DateCreated = item.DateCreated,
+                    IsVisible = item.IsVisible,
+
+                   
+                }
+                    );
+            }
+
+            return Ok(response);
+            //returns the Dto to the user
+        }
 
 
     }
