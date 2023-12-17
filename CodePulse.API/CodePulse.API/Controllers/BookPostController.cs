@@ -23,10 +23,12 @@ namespace CodePulse.API.Controllers
     public class BookPostController : ControllerBase
     {
         private readonly IBookPostRepo _bookPostRepo;
+        private readonly ICategoryRepo _categoryRepo;
 
-        public BookPostController(IBookPostRepo bookPostRepo)
+        public BookPostController(IBookPostRepo bookPostRepo, ICategoryRepo categoryRepo)
         {
             _bookPostRepo = bookPostRepo;
+            _categoryRepo = categoryRepo;
         }
 
         [HttpPost("Add-BookPost")]
@@ -38,16 +40,27 @@ namespace CodePulse.API.Controllers
             var bookPost = new BookPost   //ensure variable name of this mapping is == variable name passed in your repo look for *** in repo
             {
                 Title = postBookPostRequestDTO.Title,
-               ShortDescription = postBookPostRequestDTO.ShortDescription,
-               Author = postBookPostRequestDTO.Author,
-               UrlHandle = postBookPostRequestDTO.UrlHandle,
-               Content = postBookPostRequestDTO.Content,
-               FeaturedImageUrl = postBookPostRequestDTO.FeaturedImageUrl,
-               DateCreated = postBookPostRequestDTO.DateCreated,
-               IsVisible = postBookPostRequestDTO.IsVisible,
+                ShortDescription = postBookPostRequestDTO.ShortDescription,
+                Author = postBookPostRequestDTO.Author,
+                UrlHandle = postBookPostRequestDTO.UrlHandle,
+                Content = postBookPostRequestDTO.Content,
+                FeaturedImageUrl = postBookPostRequestDTO.FeaturedImageUrl,
+                DateCreated = postBookPostRequestDTO.DateCreated,
+                IsVisible = postBookPostRequestDTO.IsVisible,
+                RCategory = new List<Category>()
 
 
             };
+
+            foreach (var item in postBookPostRequestDTO.RCategory)
+            {
+                var existingCategory = await _categoryRepo.GetByIdAsync(item);
+
+                if (existingCategory != null)
+                {
+                    bookPost.RCategory.Add(existingCategory);
+                }
+            }
 
             await _bookPostRepo.CreateAsync(bookPost);
 
@@ -64,8 +77,10 @@ namespace CodePulse.API.Controllers
                 FeaturedImageUrl = bookPost.FeaturedImageUrl,
                 DateCreated = bookPost.DateCreated,
                 IsVisible = bookPost.IsVisible,
-                //this mapping is what would display in our swagger UI
-            };
+                Categories = bookPost.RCategory.Select(x => new CategoryResponseDto
+                { Id = x.Id, Name = x.Name, UrlHandle = x.Urlhandle }).ToList()
+            //this mapping is what would display in our swagger UI
+        };
 
 
             return Ok(response);   //you have to return the DTO response
@@ -107,8 +122,10 @@ namespace CodePulse.API.Controllers
                     FeaturedImageUrl = item.FeaturedImageUrl,
                     DateCreated = item.DateCreated,
                     IsVisible = item.IsVisible,
+                    Categories = item.RCategory.Select(x => new CategoryResponseDto
+                    { Id = x.Id, Name = x.Name, UrlHandle = x.Urlhandle }).ToList()
 
-                   
+
                 }
                     );
             }
@@ -118,5 +135,45 @@ namespace CodePulse.API.Controllers
         }
 
 
+
+        //GET: https://localhost:7278/api/BookPost/Get-All-Books/{id}
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> GetById([FromRoute] Guid id)
+        {
+
+            try
+            {
+                var region = await _bookPostRepo.GetRegionByIdAsync(id);
+                if (region == null)
+                {
+                    return NotFound();
+                }
+                var reg = new BookPostResponseDto
+                {
+                    Id = region.Id,
+                    Title = region.Title,
+                    ShortDescription = region.ShortDescription,
+                    Author = region.Author,
+                    UrlHandle = region.UrlHandle,
+                    Content = region.Content,
+                    FeaturedImageUrl = region.FeaturedImageUrl,
+                    DateCreated = region.DateCreated,
+                    IsVisible = region.IsVisible,
+                    Categories = region.RCategory.Select(x => new CategoryResponseDto
+                    { Id = x.Id, Name = x.Name, UrlHandle = x.Urlhandle }).ToList()
+
+                };
+
+                return Ok(reg);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+
+        }
     }
 }

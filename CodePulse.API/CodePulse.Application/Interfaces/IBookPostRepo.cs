@@ -7,5 +7,8 @@ namespace CodePulse.Application.Interfaces
         Task<BookPost> CreateAsync(BookPost bookPost);
 
         Task<IEnumerable<BookPost>> GetAllAsync();
+        Task<BookPost> GetRegionByIdAsync(Guid id);
+
+
     }
 }

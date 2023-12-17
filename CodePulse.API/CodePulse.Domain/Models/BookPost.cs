@@ -13,6 +13,6 @@
         public DateTime DateCreated { get; set; }
         public bool IsVisible { get; set; }
 
-        public IEnumerable<Category> RCategory { get; set; } 
+        public ICollection<Category> RCategory { get; set; } 
     }
 }

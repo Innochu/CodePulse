@@ -29,8 +29,15 @@ namespace CodePulse.Infrastructure.RepositoryFolder
 
         public async Task<IEnumerable<BookPost>> GetAllAsync()
         {
-            return await _applicationDbContext.BookPosts.ToListAsync();
+            return await _applicationDbContext.BookPosts.Include(x => x.RCategory).ToListAsync();
 
+        }
+
+        public async Task<BookPost> GetRegionByIdAsync(Guid id)
+        {
+            var getbyId = await _applicationDbContext.BookPosts.Include(x => x.RCategory).FirstOrDefaultAsync(item => item.Id == id);
+
+            return getbyId;
         }
     }
 }

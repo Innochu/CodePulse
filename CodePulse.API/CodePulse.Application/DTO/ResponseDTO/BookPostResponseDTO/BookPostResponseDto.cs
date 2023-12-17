@@ -1,4 +1,6 @@
-﻿namespace CodePulse.Application.DTO.ResponseDTO.BlogPostResponseDTO
+﻿using CodePulse.Application.DTO.ResponseDTO.CategoryResponseDTO;
+
+namespace CodePulse.Application.DTO.ResponseDTO.BlogPostResponseDTO
 {
     public class BookPostResponseDto
     {
@@ -13,5 +15,7 @@
         public DateTime DateCreated { get; set; }
         public bool IsVisible { get; set; }
 
+        public List<CategoryResponseDto> Categories { get; set; } = new List<CategoryResponseDto>();
+        //category of each bookpost
     }
 }

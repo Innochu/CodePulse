@@ -11,6 +11,6 @@ namespace CodePulse.Domain.Models
         [Required]
         public string Urlhandle { get; set; } = string.Empty;
 
-        public IEnumerable<BookPost> RBookPost { get; set; } 
+        public ICollection<BookPost> RBookPost { get; set; } 
     }
 }//when you are sure of the model, do fluent validation
