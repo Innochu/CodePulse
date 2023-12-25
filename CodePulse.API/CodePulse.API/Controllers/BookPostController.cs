@@ -7,6 +7,7 @@ using CodePulse.Application.Interfaces;
 using CodePulse.Domain.Models;
 using CodePulse.Infrastructure.RepositoryFolder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodePulse.API.Controllers
@@ -77,10 +78,10 @@ namespace CodePulse.API.Controllers
                 FeaturedImageUrl = bookPost.FeaturedImageUrl,
                 DateCreated = bookPost.DateCreated,
                 IsVisible = bookPost.IsVisible,
-                Categories = bookPost.RCategory.Select(x => new CategoryResponseDto
+                RCategory = bookPost.RCategory.Select(x => new CategoryResponseDto
                 { Id = x.Id, Name = x.Name, UrlHandle = x.Urlhandle }).ToList()
-            //this mapping is what would display in our swagger UI
-        };
+                //this mapping is what would display in our swagger UI
+            };
 
 
             return Ok(response);   //you have to return the DTO response
@@ -115,14 +116,14 @@ namespace CodePulse.API.Controllers
                 {
                     Id = item.Id,
                     Title = item.Title,
-                    ShortDescription= item.ShortDescription,
+                    ShortDescription = item.ShortDescription,
                     Author = item.Author,
                     UrlHandle = item.UrlHandle,
                     Content = item.Content,
                     FeaturedImageUrl = item.FeaturedImageUrl,
                     DateCreated = item.DateCreated,
                     IsVisible = item.IsVisible,
-                    Categories = item.RCategory.Select(x => new CategoryResponseDto
+                    RCategory = item.RCategory.Select(x => new CategoryResponseDto
                     { Id = x.Id, Name = x.Name, UrlHandle = x.Urlhandle }).ToList()
 
 
@@ -160,7 +161,7 @@ namespace CodePulse.API.Controllers
                     FeaturedImageUrl = region.FeaturedImageUrl,
                     DateCreated = region.DateCreated,
                     IsVisible = region.IsVisible,
-                    Categories = region.RCategory.Select(x => new CategoryResponseDto
+                    RCategory = region.RCategory.Select(x => new CategoryResponseDto
                     { Id = x.Id, Name = x.Name, UrlHandle = x.Urlhandle }).ToList()
 
                 };
@@ -174,6 +175,111 @@ namespace CodePulse.API.Controllers
                 throw new InvalidOperationException(ex.Message);
             }
 
+        }
+
+
+
+
+
+        //Put: https://localhost:7278/api/BookPost/{id}
+
+        [HttpPut]
+        [Route("{Id:Guid}")]
+
+        public async Task<IActionResult> Update([FromRoute] Guid Id, [FromBody] UpdateBookPostRequestDTO updateBookPostRequestDTO)
+        {
+
+            // map DTO to Domain Model
+
+            var bookPost = new BookPost   //ensure variable name of this mapping is == variable name passed in your repo look for *** in repo
+            {
+                Id = Id,
+                Title = updateBookPostRequestDTO.Title,
+                ShortDescription = updateBookPostRequestDTO.ShortDescription,
+                Author = updateBookPostRequestDTO.Author,
+                UrlHandle = updateBookPostRequestDTO.UrlHandle,
+                Content = updateBookPostRequestDTO.Content,
+                FeaturedImageUrl = updateBookPostRequestDTO.FeaturedImageUrl,
+                DateCreated = updateBookPostRequestDTO.DateCreated,
+                IsVisible = updateBookPostRequestDTO.IsVisible,
+                RCategory = new List<Category>()
+
+
+            };
+
+            //foreach
+
+            foreach (var item in updateBookPostRequestDTO.RCategory)
+            {
+                var existingCategory = await _categoryRepo.GetByIdAsync(item);
+
+                if (existingCategory != null)
+                {
+                    bookPost.RCategory.Add(existingCategory);
+                }
+            }
+
+            //call repository to update blogpost domain model
+            var updatedblogpost = await _bookPostRepo.Update(Id, bookPost);
+
+            if (updatedblogpost == null)
+            {
+                return NotFound();
+            }
+
+            //convert domain model back to dto
+
+            var response = new BookPostResponseDto
+            {
+                Id = bookPost.Id,
+                Title = bookPost.Title,
+                ShortDescription = bookPost.ShortDescription,
+                Author = bookPost.Author,
+                UrlHandle = bookPost.UrlHandle,
+                Content = bookPost.Content,
+                FeaturedImageUrl = bookPost.FeaturedImageUrl,
+                DateCreated = bookPost.DateCreated,
+                IsVisible = bookPost.IsVisible,
+                RCategory = bookPost.RCategory.Select(x => new CategoryResponseDto
+                { Id = x.Id, Name = x.Name, UrlHandle = x.Urlhandle }).ToList()
+                //this mapping is what would display in our swagger UI
+            };
+
+
+            return Ok(response);   //you have to return the DTO response
+        }
+
+
+        //delete: https://localhost:7278/api/BookPost/{Id}
+
+        [HttpDelete]
+        [Route("{Id:Guid}")]
+        public async Task<IActionResult> DeleteBook([FromRoute] Guid Id)
+        {
+           var deleted = await _bookPostRepo.DeleteAsync(Id);
+
+            if (deleted == null)
+            {
+                return NotFound(nameof(DeleteBook));
+            }
+
+            //convert Domain model to Dto
+            var response = new BookPostResponseDto
+            {
+                Id = deleted.Id,
+                Title = deleted.Title,
+                ShortDescription = deleted.ShortDescription,
+                Author = deleted.Author,
+                UrlHandle = deleted.UrlHandle,
+                Content = deleted.Content,
+                FeaturedImageUrl = deleted.FeaturedImageUrl,
+                DateCreated = deleted.DateCreated,
+                IsVisible = deleted.IsVisible,
+
+            };
+
+            return Ok(response);
+            
         }
     }
 }

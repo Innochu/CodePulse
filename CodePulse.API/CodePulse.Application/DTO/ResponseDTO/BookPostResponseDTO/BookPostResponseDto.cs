@@ -15,7 +15,7 @@ namespace CodePulse.Application.DTO.ResponseDTO.BlogPostResponseDTO
         public DateTime DateCreated { get; set; }
         public bool IsVisible { get; set; }
 
-        public List<CategoryResponseDto> Categories { get; set; } = new List<CategoryResponseDto>();
+        public List<CategoryResponseDto> RCategory{ get; set; } = new List<CategoryResponseDto>();
         //category of each bookpost
     }
 }

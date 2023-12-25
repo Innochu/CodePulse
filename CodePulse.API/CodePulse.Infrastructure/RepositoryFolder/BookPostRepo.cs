@@ -27,6 +27,19 @@ namespace CodePulse.Infrastructure.RepositoryFolder
             return bookPost;
         }
 
+        public async Task<BookPost?>  DeleteAsync(Guid Id)
+        {
+           var del = await _applicationDbContext.BookPosts.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (del != null)
+            {
+                _applicationDbContext.BookPosts.Remove(del);
+               await _applicationDbContext.SaveChangesAsync();
+                return del;
+            }
+            return null;
+        }
+
         public async Task<IEnumerable<BookPost>> GetAllAsync()
         {
             return await _applicationDbContext.BookPosts.Include(x => x.RCategory).ToListAsync();
@@ -38,6 +51,26 @@ namespace CodePulse.Infrastructure.RepositoryFolder
             var getbyId = await _applicationDbContext.BookPosts.Include(x => x.RCategory).FirstOrDefaultAsync(item => item.Id == id);
 
             return getbyId;
+        }
+
+        public async Task<BookPost> Update(Guid Id, BookPost bookPost)
+        {
+            var updatebyid = await _applicationDbContext.BookPosts.Include(x => x.RCategory).FirstOrDefaultAsync(item => item.Id == bookPost.Id);
+
+            if (updatebyid == null)
+            {
+                return null;
+            }
+
+            //update blogpost
+               _applicationDbContext.Entry(updatebyid).CurrentValues.SetValues(bookPost);
+            
+            //update categories
+
+            updatebyid.RCategory = bookPost.RCategory;
+
+            await _applicationDbContext.SaveChangesAsync();
+            return bookPost;
         }
     }
 }
